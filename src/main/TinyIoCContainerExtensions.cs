@@ -116,6 +116,43 @@ namespace ei8.Extensions.DependencyInjection
                 Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IInstanceReader,
                 Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.InstanceReader
             >();
+
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IExpressionReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.ExpressionReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IInstantiatesClassReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.InstantiatesClassReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IPropertyAssignmentReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.PropertyAssignmentReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IPropertyAssociationReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.PropertyAssociationReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IPropertyValueExpressionReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.PropertyValueExpressionReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IUnitReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.UnitReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IValueReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.ValueReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IValueExpressionReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.ValueExpressionReader
+            >();
+            container.Register<
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IInstanceReader,
+                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.InstanceReader
+            >();
         }
 
         public static void AddRequestProvider(this TinyIoCContainer container)
