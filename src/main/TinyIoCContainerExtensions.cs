@@ -74,87 +74,6 @@ namespace ei8.Extensions.DependencyInjection
             ((TinyIoCServiceLocator)container.Resolve<IServiceProvider>()).SetRequestContainer(container);
         }
 
-        public static void AddReaders(this TinyIoCContainer container)
-        {
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IAggregateParser,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.AggregateParser
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IExpressionReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.ExpressionReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IInstantiatesClassReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.InstantiatesClassReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IPropertyAssignmentReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.PropertyAssignmentReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IPropertyAssociationReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.PropertyAssociationReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IPropertyValueExpressionReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.PropertyValueExpressionReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IUnitReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.UnitReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IValueReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.ValueReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IValueExpressionReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.ValueExpressionReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.IInstanceReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Inductive.InstanceReader
-            >();
-
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IExpressionReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.ExpressionReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IInstantiatesClassReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.InstantiatesClassReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IPropertyAssignmentReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.PropertyAssignmentReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IPropertyAssociationReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.PropertyAssociationReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IPropertyValueExpressionReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.PropertyValueExpressionReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IUnitReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.UnitReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IValueReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.ValueReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IValueExpressionReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.ValueExpressionReader
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.IInstanceReader,
-                Cortex.Coding.d23.neurULization.Processors.Readers.Deductive.InstanceReader
-            >();
-        }
-
         public static void AddRequestProvider(this TinyIoCContainer container)
         {
             var rp = new RequestProvider();
@@ -172,46 +91,6 @@ namespace ei8.Extensions.DependencyInjection
             container.Register<IRepository>((tic, npo) => new Repository(container.Resolve<IInMemoryAuthoredEventStore>()));
             container.Register<CQRSlite.Domain.ISession, CQRSlite.Domain.Session>();
             container.Register<ITransaction, EventSourcing.Client.Transaction>();
-        }
-
-        public static void AddWriters(this TinyIoCContainer container)
-        {
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IExpressionWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.ExpressionWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IInstantiatesClassWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.InstantiatesClassWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IPropertyAssignmentWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.PropertyAssignmentWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IPropertyAssociationWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.PropertyAssociationWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IPropertyValueExpressionWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.PropertyValueExpressionWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IUnitWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.UnitWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IValueWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.ValueWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IValueExpressionWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.ValueExpressionWriter
-            >();
-            container.Register<
-                Cortex.Coding.d23.neurULization.Processors.Writers.IInstanceWriter,
-                Cortex.Coding.d23.neurULization.Processors.Writers.InstanceWriter
-            >();
         }
     }
 }
