@@ -1,7 +1,12 @@
 ﻿using CQRSlite.Commands;
 using CQRSlite.Domain;
 using CQRSlite.Routing;
+using ei8.EventSourcing.Application;
+using ei8.EventSourcing.Application.EventStores;
 using ei8.EventSourcing.Client;
+using ei8.EventSourcing.Domain.Model;
+using ei8.EventSourcing.Port.Adapter.IO.Persistence.Events.SQLite;
+using ei8.EventSourcing.Port.Adapter.IO.Process.Services;
 using Nancy.TinyIoc;
 using neurUL.Common.Http;
 using neurUL.Cortex.Port.Adapter.In.InProcess;
@@ -91,6 +96,29 @@ namespace ei8.Extensions.DependencyInjection
             container.Register<IRepository>((tic, npo) => new Repository(container.Resolve<IInMemoryAuthoredEventStore>()));
             container.Register<CQRSlite.Domain.ISession, CQRSlite.Domain.Session>();
             container.Register<ITransaction, EventSourcing.Client.Transaction>();
+        }
+
+        public static void AddInProcessTransactions(this TinyIoCContainer container)
+        {
+            container.Register<ISettingsService, InProcessSettingsService>();
+            container.Register<IEventStore, EventStore>();
+            container.Register<IEventStoreApplicationService, EventStoreApplicationService>();
+            container.Register<
+                ei8.EventSourcing.Port.Adapter.In.InProcess.IEventAdapter,
+                ei8.EventSourcing.Port.Adapter.In.InProcess.EventAdapter
+            >();
+            container.Register<
+                ei8.EventSourcing.Port.Adapter.Out.InProcess.IEventAdapter,
+                ei8.EventSourcing.Port.Adapter.Out.InProcess.EventAdapter
+            >();
+            container.Register<IEventSerializer, EventSerializer>();
+            container.Register<IAuthoredEventStore, InProcessEventStore>();
+            container.Register<IInMemoryAuthoredEventStore, InMemoryEventStore>();
+            container.Register<IRepository>(
+                (tic, npo) => new Repository(container.Resolve<IInMemoryAuthoredEventStore>())
+            );
+            container.Register<CQRSlite.Domain.ISession, Session>();
+            container.Register<ITransaction, Transaction>();
         }
     }
 }
