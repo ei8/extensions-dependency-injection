@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>netstandard2.0</TargetFramework>
+	<AssemblyName>ei8.Extensions.DependencyInjection.Cortex</AssemblyName>
+	<RootNamespace>ei8.Extensions.DependencyInjection.Cortex</RootNamespace>
+	<PackageId>ei8.Extensions.DependencyInjection.Cortex</PackageId>
+	<PackageVersion>0.0.2</PackageVersion>
+	<Authors>Elmer Roderick Niem Bool</Authors>
+	<Description>Extensions Dependency Injection Cortex</Description>
+	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	<PackageReleaseNotes>Initial commit.</PackageReleaseNotes>
+	<PackageTags>extensions dependency injection cortex</PackageTags>
+	<Version>0.0.2</Version>
+	<PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="CqrsLite" Version="0.18.1" />
+	<PackageReference Include="ei8.Data.Aggregate.Port.Adapter.In.InProcess" Version="0.1.5" />
+	<PackageReference Include="ei8.Data.Mirror.Port.Adapter.In.InProcess" Version="0.1.1" />
+	<PackageReference Include="ei8.Data.Tag.Port.Adapter.In.InProcess" Version="0.2.0" />
+	<PackageReference Include="ei8.EventSourcing.Client" Version="0.3.9" />
+	<PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
+	<PackageReference Include="neurUL.Common.CqrsLite" Version="0.1.0" />
+	<PackageReference Include="neurUL.Common.Http" Version="0.2.1" />
+	<PackageReference Include="neurUL.Cortex.Port.Adapter.In.InProcess" Version="0.1.4" />
+  </ItemGroup>
+
+</Project>
